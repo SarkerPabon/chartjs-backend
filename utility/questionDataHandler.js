@@ -4,7 +4,7 @@ async function parseQuestionsData() {
 	try {
 		let qustionFour = {};
 
-		const data = await fs.readFile("./data/questions.json");
+		const data = await fs.readFile("../data/questions.json");
 		const jsonData = JSON.parse(data);
 
 		jsonData.forEach((item) => {
