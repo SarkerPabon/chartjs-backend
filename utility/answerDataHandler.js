@@ -1,4 +1,7 @@
 const fs = require("fs").promises;
+const path = require("path");
+
+const filePath = path.resolve(__dirname, "../data/answers.json");
 
 async function parseAnswersData() {
 	try {
@@ -7,7 +10,7 @@ async function parseAnswersData() {
 		const answerThree = [];
 		const answerFour = [];
 
-		const data = await fs.readFile("../data/answers.json");
+		const data = await fs.readFile(filePath);
 		const jsonData = JSON.parse(data);
 
 		jsonData.forEach((item) => {

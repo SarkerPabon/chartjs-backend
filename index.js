@@ -7,6 +7,7 @@ const app = express();
 const port = 4000;
 
 app.use(cors());
+app.use(express.static(__dirname + "/public/"));
 app.use(express.json());
 
 app.get("/", (req, res) => {
@@ -171,7 +172,7 @@ app.get("/chart-three", async (req, res) => {
 		});
 	} catch (error) {
 		console.error("Error processing JSON:", error);
-		res.status(500).json({ error: "Chart Two Internal Server Error" });
+		res.status(500).json({ error: "Chart Three Internal Server Error" });
 	}
 });
 
