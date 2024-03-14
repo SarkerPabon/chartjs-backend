@@ -1,7 +1,7 @@
 const fs = require("fs").promises;
 const path = require("path");
 
-const filePath = path.resolve(__dirname, "../data/answers.json");
+const filePath = path.resolve(__dirname, "../data/questions.json");
 
 async function parseQuestionsData() {
 	try {
@@ -9,6 +9,8 @@ async function parseQuestionsData() {
 
 		const data = await fs.readFile(filePath);
 		const jsonData = JSON.parse(data);
+
+		// console.log("jsonData: ", jsonData);
 
 		jsonData.forEach((item) => {
 			const questionIndex = item.questionIndex;

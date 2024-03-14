@@ -105,10 +105,10 @@ app.get("/chart-three", async (req, res) => {
 		const { answerFour } = await parseAnswersData();
 		const { qustionFour } = await parseQuestionsData();
 
-		console.log("qustionFour: ", qustionFour);
+		// console.log("qustionFour: ", qustionFour);
 
 		// Check length
-		console.log("answerFour Length: ", answerFour.length);
+		// console.log("answerFour Length: ", answerFour.length);
 
 		// Create a map to store unique submissionIds
 		const submissionIdsMap = new Map();
@@ -122,7 +122,7 @@ app.get("/chart-three", async (req, res) => {
 			return false;
 		});
 
-		console.log("submissionIdsMap Size: ", submissionIdsMap.size);
+		// console.log("submissionIdsMap Size: ", submissionIdsMap.size);
 
 		// Create a map to store unique submissionIds
 		const participantsMap = new Map();
@@ -139,28 +139,28 @@ app.get("/chart-three", async (req, res) => {
 
 		// console.log("participantsMap Size: ", participantsMap.size);
 		const participants = participantsMap.size;
-		console.log("participants: ", participants);
+		// console.log("participants: ", participants);
 
 		// console.log("groupedByAnswerFour: ", groupedByAnswerFour);
 		const total = Object.values(groupedByAnswerFour).reduce(
 			(total, count) => total + count,
 			0
 		);
-		console.log("groupedByAnswerFour Total: ", total);
+		// console.log("groupedByAnswerFour Total: ", total);
 
 		const participantsPercentage = (
 			(participants / uniqueAnswerFourObj.length) *
 			100
 		).toFixed(2);
-		console.log("participantsPercentage: ", participantsPercentage);
+		// console.log("participantsPercentage: ", participantsPercentage);
 
 		const answerPerRespondentPercentage = (
 			total / submissionIdsMap.size
 		).toFixed(2);
-		console.log(
-			"answerPerRespondentPercentage: ",
-			answerPerRespondentPercentage
-		);
+		// console.log(
+		// 	"answerPerRespondentPercentage: ",
+		// 	answerPerRespondentPercentage
+		// );
 
 		res.json({
 			groupedByAnswerFour,
